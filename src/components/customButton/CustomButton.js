@@ -20,13 +20,15 @@ function CustomButton(props) {
     const classes = useStyles();
     const label = props.children || 'Sign up';
 
-
+    const {...other} = props;
 
     return(
         <>
             <Button 
               className={classes.root}
               children={label} 
+              onClick={props.onClick}
+              {...other}
               >
             </Button>  
         </>

@@ -1,13 +1,14 @@
-import AppHeader from './components/appHeader/AppHeader';
-import UserList from './components/userList/UserList';
+import LayOut from './components/layOut/LayOut';
 import './App.css';
 
 
-function App() {
+
+
+const App = () => {
+
   return (
     <div className="App">
-      <AppHeader/>
-      <UserList/>
+      <LayOut/>
     </div>
   );
 }
