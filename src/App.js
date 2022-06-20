@@ -1,10 +1,11 @@
-import CustomButton from './components/customButton/CustomButton';
+import AppHeader from './components/appHeader/AppHeader';
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <CustomButton/>
+      <AppHeader/>
     </div>
   );
 }
