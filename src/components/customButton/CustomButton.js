@@ -12,21 +12,27 @@ const useStyles = makeStyles({
       textTransform: "none",
       fontSize: '16px',
       lineHeight:'26px',
- 
-    }
+      '&$disabled': {
+        color: 'white',
+        background: '#B4B4B4',
+      },
+    },
+    disabled: {},
   });
 
 function CustomButton(props) {
     const classes = useStyles();
     const label = props.children || 'Sign up';
 
-    const {...other} = props;
-
+    const {disabled, ...other} = props;
     return(
         <>
             <Button 
-              className={classes.root}
+              classes={{
+                root: classes.root,
+                disabled: classes.disabled,}}
               children={label} 
+              disabled={disabled } 
               onClick={props.onClick}
               {...other}
               >

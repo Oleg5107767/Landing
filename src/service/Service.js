@@ -5,10 +5,9 @@ const useService = () => {
     const {request, loading} = useHttp();
 
     const getAllUser = async (count = 0) => {
-    //    const apiAllUsers ='https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6';
     const apiAllUsers =`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${count}`
         const res = await request(apiAllUsers);
-
+ 
         return res.users    
     }
 
@@ -17,11 +16,25 @@ const useService = () => {
         const res = await request(apiPositions);
         return res.positions
     }
+    const getToken = async() => {
+        const apiToken = 'https://frontend-test-assignment-api.abz.agency/api/v1/token';
+        const res = await request(apiToken);
+        return res.token
+    }
 
+    const createUser = async (formData) => {
+        const url = 'https://frontend-test-assignment-api.abz.agency/api/v1/users';
+        const headers ={
+        'Token': await getToken(),
+       }
+        await request(url, 'POST', formData, headers);
+    }
 
-
-
-    return { getAllUser,  getPositions}
+    return { getAllUser, createUser, getPositions, getToken, loading }
 }
 
 export default useService;
+
+
+
+

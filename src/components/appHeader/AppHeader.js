@@ -1,7 +1,7 @@
 import  React from 'react';
 import {AppBar, Toolbar, Box } from '@material-ui/core';
 import CustomButton from '../customButton/CustomButton';
-
+import {handleAnchor} from '../helper/Helper'
 import Logo from '../../img/logo.svg';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 
   appBar: {
     boxShadow: 'none',
-    backgroundColor: 'grey'
   },
 
   toolbar: {
@@ -56,10 +55,10 @@ const AppHeader = (props) => {
                         alignItems="center"
                       >
                         <Box>
-                          <CustomButton children={"Users"} />
+                          <CustomButton children={"Users"} children={"Users"} onClick={() => handleAnchor("#back-to-user")}/>
                         </Box>
                         <Box>
-                          <CustomButton />
+                          <CustomButton onClick={() => handleAnchor("#back-to-form")}/>
                         </Box>
                       </Box>
                 </Toolbar> 
