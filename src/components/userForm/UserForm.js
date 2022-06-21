@@ -37,6 +37,20 @@ const useStyles = makeStyles((theme) => ({
            textAlign: 'left',
            marginTop: '30px',
     },
+      [theme.breakpoints.only('xs')]: {
+        wraperForm: {
+            padding: theme.spacing(17.525, 2, 12.5, 2 )
+        },
+        formHead: {
+            margin: theme.spacing(0, 'auto', 6.25, 'auto'),
+        }
+    },
+    [theme.breakpoints.only('sm')]: {
+        wraperForm: {
+            padding: theme.spacing(17.525, 3, 12.5, 3 )
+        },
+    }
+    
 }));
 
 const initialValue ={

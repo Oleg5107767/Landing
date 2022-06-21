@@ -18,15 +18,30 @@ const useStyles = makeStyles((theme) => ({
             marginTop: theme.spacing(0.5)
         }
     },
-
-
+    [theme.breakpoints.only('xs')]: {
+        input: {
+            '& .MuiInputBase-root':{
+                width: '328px'
+            }
+        }
+    }
     
 }));
 
 
 const InputForm = (props) => {
     
-    const {helperText, name, value,type,InputProps,error=null, onChange,placeholder } = props;
+    const {
+        helperText, 
+        name, 
+        value,
+        type,
+        InputProps,
+        error=null, 
+        onChange,
+        placeholder 
+    } = props;
+    
     const classes = useStyles();
  
     return(

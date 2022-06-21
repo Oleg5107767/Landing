@@ -8,9 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   
   wrap: {
@@ -34,7 +31,6 @@ const AppHeader = (props) => {
 
   const classes = useStyles();
 
-    
   return (
             <AppBar position="absolute" color="inherit" className={classes.appBar}>
                 <Toolbar 

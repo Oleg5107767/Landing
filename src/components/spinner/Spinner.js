@@ -6,7 +6,6 @@ import {Grid} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 
-  
     spinner: {
         color: '#00BDD3',
         animationDuration: '550ms',

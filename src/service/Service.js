@@ -5,9 +5,12 @@ const useService = () => {
     const {request, loading} = useHttp();
 
     const getAllUser = async (count = 0) => {
+    //    const apiAllUsers ='https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=6';
     const apiAllUsers =`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${count}`
         const res = await request(apiAllUsers);
- 
+       // console.log(res.users)
+       // return res.data.results.map();
+       // console.log(res.data.results)
         return res.users    
     }
 

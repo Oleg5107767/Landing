@@ -3,7 +3,7 @@ import {Grid, Paper, Container, Typography, Box} from '@material-ui/core';
 import Image from '../../img/pexels-alexandr-podvalny-1227513.jpeg'
 import {handleAnchor} from '../helper/Helper';
 
-import {makeStyles} from '@material-ui/core/styles';
+import {  makeStyles,  } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -53,6 +53,52 @@ const useStyles = makeStyles((theme) => ({
           marginBottom:  theme.spacing(4),
         },
     },
+    [theme.breakpoints.only('xs')]: {
+      bg: {
+        height: '500px',
+        backgroundSize:' 342.6% 164.8%',
+        backgroundPosition: '51.2% 98.7%',
+      },
+      contnent: {
+        marginTop:  theme.spacing(5),
+          "& :first-child.MuiGrid-item ": {
+            width: '328px',
+            height: '120px',
+          },
+          "& :nth-child(2).MuiGrid-item": {
+            width: '328px',
+            height: '182px',
+          },
+      }
+    },
+    [theme.breakpoints.only('sm')]: {
+      bg: {
+        height: '500px',
+        backgroundSize:' 342.6% 164.8%',
+        backgroundPosition: '51.2% 98.7%',
+      },
+      contnent: {
+        marginTop:  theme.spacing(11.175),
+      }
+    },
+    [theme.breakpoints.only('md')]: {
+      bg: {
+        backgroundSize:' 342.6% 164.8%',
+        backgroundPosition: '51.2% 98.7%',
+      },
+      contnent: {
+        "& :last-child.MuiGrid-item ": {
+          marginTop: theme.spacing(3.9),
+        },
+      }
+    },
+    [theme.breakpoints.only('xl')]: {
+      bg: {
+        width: '1170px',
+        backgroundSize: '218.5% 260%',
+        backgroundPosition: '50% 80%',
+      }
+    }
   }));
 
 const Preview = () => {

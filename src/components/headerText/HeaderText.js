@@ -15,11 +15,9 @@ const HeaderText = (props) => {
     const classes = useStyles();
 
     const label = props.children;
-
     const {...other} = props;
     
     return(
-
         <Typography 
             className={classes.root}
             component="h1"

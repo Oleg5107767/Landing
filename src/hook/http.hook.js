@@ -24,6 +24,6 @@ export const useHttp = () => {
         }
     }, []);
 
-  
+  // console.log(loading)
     return {request,  loading}
 }

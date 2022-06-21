@@ -54,7 +54,18 @@ const useStyles = makeStyles((theme) =>({
   noBorder: {
     borderLeft: 'none',
   },
-
+  [theme.breakpoints.only('xs')]: {
+    btnUpload: {
+      float: "right",
+    },
+    inputUpload: {
+      float: "right",
+      '& .MuiInputBase-root': {
+        width: '246px',
+        height: '54px',
+      }, 
+    }
+  },
 }));
 
 
@@ -66,7 +77,6 @@ const UploadPhotoForm = (props) => {
     
     const classes = useStyles();
 
-    //console.log(error)
     return(
             <Grid 
               container 
