@@ -4,13 +4,10 @@ import CustomButton from '../customButton/CustomButton';
 import HeaderText from '../headerText/HeaderText';
 import {Container, Grid,  Typography, Box }from '@material-ui/core';
 import Spinner from '../spinner/Spinner';
-
-
+import EllipsisToolTip from "ellipsis-tooltip-react-chan";
 
 import { makeStyles } from '@material-ui/core/styles';
-
-
-
+import "./UserList.css";
 
 
 
@@ -37,18 +34,19 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(1.81),
     },
     
-
     avatar: {
         overflow: 'hidden',
         borderRadius: '50%',
     },
 
-  textSpan: {
-    cursor: 'pointer',
-    fontWeight: '400',
-    fontSize: '16px',
-    lineHeight: '26px'
-  },
+    textSpan: {
+      cursor: 'pointer',
+      fontWeight: '400',
+      fontSize: '16px',
+      lineHeight: '26px',
+      fontFamily: "Nunito",
+      fontStyle: 'Regular 400',
+    },
   
     containerBtn: {
         marginTop: theme.spacing(4.4),
@@ -57,13 +55,63 @@ const useStyles = makeStyles(theme => ({
         }
     },
 
+    [theme.breakpoints.only('xs')]: {
+        wraper: {
+            padding: theme.spacing(17.5, 2, 0, 2)
+        },
+        listHead: {
+            marginBottom: theme.spacing(5),
+        },
+        listItem: {
+            width: '288px',
+            margin: theme.spacing(1.25, 'auto', 1.25, 'auto'),
+        },
+        containerBtn: {
+            marginTop: theme.spacing(5)
+        }
+    },
 
+    [theme.breakpoints.only('sm')]: {
+        wraper: {
+            padding: theme.spacing(17.5, 3, 0, 3)
+        },
+        listHead: {
+            marginBottom: theme.spacing(5.25),
+        },
+        listItem: {
+            width: '304px',
+            margin: theme.spacing(1, 'auto', 1, 'auto'),
+        },
+        containerBtn: {
+            marginTop: theme.spacing(5.25)
+        }
+    },
 
-  }));
+    [theme.breakpoints.only('md')]: {
+        containerBtn: {
+            marginTop: theme.spacing(4.375)
+        }
+    },
+
+    [theme.breakpoints.only('xl')]: {
+        listItem: {
+            width: '330px',
+        }
+    }
+
+}));
 
 
 const UsersList = (props) => {
     
+    const options = {
+        effect: "solid",
+        place: "bottom",
+        className: "toolTipClass",
+        backgroundColor: "rgba(0, 0, 0, 0.87)",
+        offset: { 'right': 80},
+        textSpan: 'center'
+      };
 
     const [users, setUsers] = useState([]);
     const [newItemLoading, setNewItemLoading] = useState(false);
@@ -103,13 +151,13 @@ const UsersList = (props) => {
                 <Box className={classes.listItem}>
                     <img src={el.photo} className={classes.avatar}></img>
                     
-                    <Typography
-                        component="h5"
-                        color="inherit"
-                        align="center"
-                    >
-                        {el.name}
-                    </Typography>
+                    <div className='wrapperName'>
+                        <EllipsisToolTip options={options}>
+                            <span className={classes.textSpan}>
+                                {el.name}
+                            </span>
+                        </EllipsisToolTip>
+                    </div>
                     
                     <Typography
                         component="h5"
@@ -118,13 +166,14 @@ const UsersList = (props) => {
                     >
                         {el.position}
                     </Typography>
-                    <Typography
-                        component="h5"
-                        color="inherit"
-                        align="center"
-                    >
-                        {el.email}
-                    </Typography>
+                    <div className='wrapperEmail'>
+                        <EllipsisToolTip options={options}>
+                            <span className={classes.textSpan}>
+                                {el.email}
+                            </span>
+                        </EllipsisToolTip>
+                    </div>
+
                     <Typography
                         component="h5"
                         color="inherit"
@@ -142,7 +191,7 @@ const UsersList = (props) => {
     return(
         <Container  
             id="back-to-user"
-            disableGutters={false}
+            disableGutters={ false }
             className={classes.wraper}
         >
             <HeaderText 
@@ -158,6 +207,7 @@ const UsersList = (props) => {
             </Grid>
             <Box  className={classes.containerBtn} >
                 <CustomButton 
+                    disabled={newItemLoading} 
                     onClick={() => onRequest(count)}
                     children={"Show more"}
                 /> 

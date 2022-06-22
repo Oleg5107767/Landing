@@ -159,7 +159,6 @@ console.log(disabledSingUp)
     const spinner = loading ? <Spinner/> : null;
     const successImg = <img src={Img}/>;
     const formContent = success ? successImg : renderForm();
-   // console.log(loading)
     return(
         <Container 
             id="back-to-form"

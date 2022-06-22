@@ -1,0 +1,15 @@
+.toolTipClass {
+    font-size: 16px !important;
+    line-height: 26px;
+    padding: 3px  16px !important;
+    border-radius: 4px;
+}
+
+.wrapperName {
+    height: 26px;
+    margin: 12px 0  20px 0 ;
+}
+.wrapperEmail {
+    height: 26px;
+    margin: 2px 0  2px 0 ;
+}

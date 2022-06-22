@@ -8,6 +8,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 
+
+
+
 const useStyles = makeStyles((theme) => ({
   
   wrap: {
@@ -23,14 +26,33 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     minHeight: 60,
   },
+  [theme.breakpoints.only('sm')]: {
+    toolbar: {
+      paddingLeft: '32px',
+      paddingRight: '32px',
+    }
+  },
 
- 
+  [theme.breakpoints.only('md')]: {
+    toolbar: {
+      paddingLeft: '60px',
+      paddingRight: '60px',
+    }
+  },
+  
+  [theme.breakpoints.only('xl')]: {
+    toolbar: {
+      paddingLeft: '695px',
+      paddingRight: '695px',
+    }
+  }
 }));
 
 const AppHeader = (props) => {
 
   const classes = useStyles();
 
+    
   return (
             <AppBar position="absolute" color="inherit" className={classes.appBar}>
                 <Toolbar 
@@ -59,7 +81,7 @@ const AppHeader = (props) => {
                       </Box>
                 </Toolbar> 
             </AppBar>  
-  );
+  )
 }
 
 export default AppHeader;

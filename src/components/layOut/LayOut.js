@@ -1,9 +1,8 @@
 import AppHeader from '../appHeader/AppHeader';
 import Preview from '../preview/Preview';
 import UserForm from '../userForm/UserForm';
-
-
 import UsersList from '../userList/UserList';
+
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
 
 const theme = createTheme({
